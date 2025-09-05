@@ -1,0 +1,56 @@
+name: pocket_library
+description: "Mobile app that helps people to have access to books"
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  imosys_flutter_package: ^0.0.12
+  http: ^1.2.1
+  provider: ^6.1.2 
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/book_covers/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/book_covers/logo.png"
+
+
+
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+
