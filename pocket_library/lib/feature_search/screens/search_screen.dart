@@ -48,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
           size: 24,
           color: Colors.white,
         ),
-        centerTitle:true,
+        centerTitle: true,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Padding(
@@ -84,7 +84,9 @@ class _SearchScreenState extends State<SearchScreen> {
           }
 
           if (searchProvider.errorMessage != null) {
-            return Center(child: ImosysTextWidget(text:  searchProvider.errorMessage!));
+            return Center(
+              child: ImosysTextWidget(text: searchProvider.errorMessage!),
+            );
           }
 
           final results = searchProvider.searchResults;
@@ -124,8 +126,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  title: Text(book.title),
-                  subtitle: Text(book.author),
+                  title: ImosysTextWidget(text: book.title),
+                  subtitle: ImosysTextWidget(text: book.author),
                   onTap: () {
                     Navigator.of(
                       context,

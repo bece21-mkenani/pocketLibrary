@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pocket_library/common/functions/flutter_token.dart';
 import 'package:pocket_library/constants/endpoints.dart';
 import 'package:pocket_library/constants/strings.dart';
 
@@ -26,7 +27,6 @@ class AuthRepository {
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print(response.body);
         return jsonDecode(response.body);
       } else {
         throw Exception('${AppStrings.serverError}: ${response.body}');
@@ -36,19 +36,17 @@ class AuthRepository {
     }
   }
 
-
   Future<Map<String, dynamic>> verifyOtp({
     required String phone,
     required String otp,
   }) async {
     try {
       final response = await _client.post(
-        Uri.parse('${AppStrings.baseUrl}${Endpoints.auth}/${Endpoints.verifyOtp}'),
+        Uri.parse(
+          '${AppStrings.baseUrl}${Endpoints.auth}/${Endpoints.verifyOtp}',
+        ),
         headers: _headers,
-        body: jsonEncode({
-          'phone': phone,
-          'otp': otp,
-        }),
+        body: jsonEncode({'phone': phone, 'otp': otp}),
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -73,6 +71,10 @@ class AuthRepository {
       );
 
       if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final token = data['token'];
+        await Token.saveToken(token);
+        print('Token saved: $token');
         return jsonDecode(response.body);
       } else {
         throw Exception('${AppStrings.serverError}: ${response.body}');
