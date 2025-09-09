@@ -6,6 +6,7 @@ import 'package:pocket_library/feature_favorite/providers/favorite_provider.dart
 import 'package:pocket_library/feature_home/data/mock_book_service.dart';
 import 'package:pocket_library/feature_home/providers/home_provider.dart';
 import 'package:pocket_library/feature_search/providers/search_provider.dart';
+import 'package:pocket_library/features_tracking/providers/tracking_provider.dart';
 import 'package:provider/provider.dart';
 import 'constants/app_colors.dart';
 import 'feature_auth/data/auth_repository.dart';
@@ -21,6 +22,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => HomeProvider(mockBookService)),
         ChangeNotifierProvider(create: (_) => SearchProvider(mockBookService)),
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) =>TrackingProvider()), 
       ],
       child: ImosysAppWrapper(
         config: ImosysConfig(

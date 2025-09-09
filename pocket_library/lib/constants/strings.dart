@@ -67,9 +67,24 @@ class AppStrings {
   static const String addToFavoritesToSeeThem =
       'Add books to your favorites to see them here.';
 
-//search screen
+  //search screen
   static const String searchBooks = 'Search Books';
   static const String searchHint = 'Search by title or author...';
   static const String noResultsFound = 'No books found matching your search.';
   static const String startTypingToSearch = 'Start typing to search for books.';
+
+  // read screen strings
+  static const String completed = 'Completed!';
+  static const String markascomplete = 'Mark as Completed';
+  static const String bookMarkascomplete = 'Book marked as completed!';
+
+  // my library screen
+  static const String screenTittle = 'My Library';
+  static const String yourLibrary = 'Your Library is Empty';
+  static const String startReading =
+      'Start reading a book to add it to your library.';
+  static const String noBooks = 'No books currently in progress.';
+  static const String inProgress = 'In Progress';
+  static const String complete = 'Completed';
+  static const String warningMessage = 'You haven\'t completed any books yet.';
 }

@@ -7,6 +7,7 @@ import 'package:pocket_library/feature_favorite/screens/Favorites_screen.dart';
 import 'package:pocket_library/feature_home/models/category_model.dart';
 import 'package:pocket_library/feature_home/providers/home_provider.dart';
 import 'package:pocket_library/feature_home/widgets/book_card_widget.dart';
+import 'package:pocket_library/features_tracking/screens/my_ibrary_screen.dart';
 import 'package:pocket_library/utilities/custom_navigation.dart';
 import 'package:pocket_library/feature_search/screens/search_screen.dart';
 import 'package:provider/provider.dart';
@@ -48,11 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.library_books_outlined),
             onPressed: () {
-              // Implement logout functionality
+              Navigator.of(
+                context,
+              ).push(SlideLeftRoute(page: const MyLibraryScreen()));
             },
           ),
+          // IconButton(
+          //   icon: const Icon(Icons.logout),
+          //   onPressed: () {
+          //     Navigator.of(
+          //       context,
+          //     ).push(SlideLeftRoute(page: const LoginScreen()));
+          //   },
+          // ),
         ],
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
