@@ -4,6 +4,8 @@ import 'package:pocket_library/constants/app_colors.dart';
 import 'package:pocket_library/constants/strings.dart';
 import 'package:pocket_library/feature_favorite/providers/favorite_provider.dart';
 import 'package:pocket_library/feature_home/models/book_model.dart';
+import 'package:pocket_library/feature_reader/screens/reader_screen.dart';
+import 'package:pocket_library/utilities/custom_navigation.dart';
 import 'package:provider/provider.dart';
 
 class BookDetailScreen extends StatelessWidget {
@@ -141,21 +143,9 @@ class BookDetailScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
                     onPressed: () {
-                      //  to Reader Screen
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Center(
-                            child: ImosysTextWidget(
-                              text: AppStrings.readerNotImplemented,
-                              align: TextAlign.center,
-                              size: 16,
-                              color: Colors.white,
-                            ),
-                          ),
-                          backgroundColor: Colors.green,
-                          behavior: SnackBarBehavior.floating,
-                        ),
-                      );
+                      Navigator.of(
+                        context,
+                      ).push(SlideLeftRoute(page:  ReaderScreen(book:book)));
                     },
                   ),
                 ),
